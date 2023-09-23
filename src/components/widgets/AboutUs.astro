@@ -1,0 +1,24 @@
+---
+import { Github, Linkedin } from 'lucide-astro';
+import Headline from '../blog/Headline.astro';
+import WidgetWrapper from '../ui/WidgetWrapper.astro';
+import AboutUsPerson from './AboutUsPerson.astro';
+
+const { bg = await Astro.slots.render('bg') } = Astro.props;
+
+const title = 'Vilka är vi?';
+const subtitle =
+  'We believe in the magic of turning dreams into stunning realities. Founded by passionate developers with a shared vision, we set out to simplify the website creation process. Our templates bring together the innovation of Astro 3.0 and the versatility of Tailwind CSS, enabling you to express your unique brand identity like never before.';
+const tagline = 'Tagline';
+const isDark = false;
+---
+
+<WidgetWrapper id="about-us" isDark={isDark} containerClass={`max-w-7xl mx-auto `} bg={bg}>
+  <Headline title={title} subtitle={subtitle} tagline={tagline} />
+  <div class="grid grid-cols-4">
+    <AboutUsPerson name="Hugo Persson" linkedIn="" github="" />
+    <AboutUsPerson name="Hugo Persson" linkedIn="" github="" />
+    <AboutUsPerson name="Hugo Persson" linkedIn="" github="" />
+    <AboutUsPerson name="Hugo Persson" linkedIn="" github="" />
+  </div>
+</WidgetWrapper>
