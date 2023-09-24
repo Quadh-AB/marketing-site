@@ -1,19 +1,33 @@
 ---
+import { Image } from 'astro:assets';
 interface Props {
+  image: any;
   name: string;
   linkedIn: string;
   github: string;
 }
 
-import { Github, Linkedin } from 'lucide-astro';
-const { name, linkedIn, github } = Astro.props as Props;
+import { Github, Linkedin, FileText } from 'lucide-astro';
+import IconLink from '../common/IconLink.astro';
+const { image, name, linkedIn, github } = Astro.props as Props;
+
+const cvPage = 'cv/' + name.toLocaleLowerCase().replaceAll(' ', '-');
 ---
 
 <div>
-  <img src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png" alt="" />
-  <div>{name}</div>
-  <div class="flex">
-    <Github />
-    <Linkedin />
+  <div class="flex justify-center mb-2">
+    <Image class="rounded-lg" src={image} alt={name} slot="image" />
+  </div>
+  <div class="text-center mb-1">{name}</div>
+  <div class="flex justify-center gap-3">
+    <IconLink href={github}>
+      <Github />
+    </IconLink>
+    <IconLink href={linkedIn}>
+      <Linkedin />
+    </IconLink>
+    <IconLink href={cvPage} target="">
+      <FileText />
+    </IconLink>
   </div>
 </div>

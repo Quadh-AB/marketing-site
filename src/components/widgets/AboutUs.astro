@@ -3,6 +3,11 @@ import { Github, Linkedin } from 'lucide-astro';
 import Headline from '../blog/Headline.astro';
 import WidgetWrapper from '../ui/WidgetWrapper.astro';
 import AboutUsPerson from './AboutUsPerson.astro';
+import { Image } from 'astro:assets';
+import Hugo from '../../assets/images/team/hugo.jpg';
+import Hussein from '../../assets/images/team/hussein.png';
+import Hanyu from '../../assets/images/team/hanyu.jpeg';
+import Hanxuan from '../../assets/images/team/hanxuan.jpeg';
 
 const { bg = await Astro.slots.render('bg') } = Astro.props;
 
@@ -15,10 +20,30 @@ const isDark = false;
 
 <WidgetWrapper id="about-us" isDark={isDark} containerClass={`max-w-7xl mx-auto `} bg={bg}>
   <Headline title={title} subtitle={subtitle} tagline={tagline} />
-  <div class="grid grid-cols-4">
-    <AboutUsPerson name="Hugo Persson" linkedIn="" github="" />
-    <AboutUsPerson name="Hugo Persson" linkedIn="" github="" />
-    <AboutUsPerson name="Hugo Persson" linkedIn="" github="" />
-    <AboutUsPerson name="Hugo Persson" linkedIn="" github="" />
+  <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+    <AboutUsPerson
+      name="Hugo Persson"
+      linkedIn="https://www.linkedin.com/in/hugo-persson-3ab782211/"
+      github="https://github.com/Hugo-Persson"
+      image={Hugo}
+    />
+    <AboutUsPerson
+      name="Hussein Taher"
+      linkedIn="https://www.linkedin.com/in/husenap/"
+      github="https://github.com/Husenap"
+      image={Hussein}
+    />
+    <AboutUsPerson
+      name="Hanyu Lin"
+      linkedIn="https://www.linkedin.com/in/hanyu-lin/"
+      github="https://github.com/Hanyu-Lin"
+      image={Hanyu}
+    />
+    <AboutUsPerson
+      name="Hanxuan Lin"
+      linkedIn="https://www.linkedin.com/in/hanxuan-lin/"
+      github="https://github.com/hanxuan-lin"
+      image={Hanxuan}
+    />
   </div>
 </WidgetWrapper>
