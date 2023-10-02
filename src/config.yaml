@@ -1,6 +1,6 @@
 site:
   name: AstroWind
-  site: 'https://astrowind.vercel.app'
+  site: 'https://www.quadh.se'
   base: '/'
   trailingSlash: false
 
@@ -10,7 +10,7 @@ site:
 metadata:
   title:
     default: AstroWind
-    template: '%s — AstroWind'
+    template: '%s — Quadh'
   description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
   robots:
     index: true
@@ -23,8 +23,6 @@ metadata:
         height: 628
     type: website
   twitter:
-    handle: '@onwidget'
-    site: '@onwidget'
     cardType: summary_large_image
 
 i18n:
