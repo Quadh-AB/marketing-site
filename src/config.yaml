@@ -1,6 +1,6 @@
 site:
   name: AstroWind
-  site: 'https://www.quadh.se'
+  site: 'https://quadh.se'
   base: '/'
   trailingSlash: false
 
