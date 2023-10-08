@@ -1,0 +1,32 @@
+---
+const { splineUrl = '' } = Astro.props;
+---
+
+<spline-embed data-spline-url={splineUrl}></spline-embed>
+<script>
+  import { Application } from '@splinetool/runtime';
+
+  class QSplineEmbed extends HTMLElement {
+    constructor() {
+      super();
+
+      const splineUrl = this.dataset.splineUrl;
+      if (!splineUrl) return;
+
+      const canvas = document.createElement('canvas');
+      canvas.className = 'transition-opacity duration-1000 opacity-0';
+
+      const app = new Application(canvas);
+      canvas.className = 'bg-transparent';
+
+      app.load(splineUrl);
+      app.addEventListener('start', () => {
+        canvas.classList.add('opacity-100');
+      });
+
+      this.appendChild(canvas);
+    }
+  }
+
+  customElements.define('spline-embed', QSplineEmbed);
+</script>

@@ -1,0 +1,30 @@
+---
+const htmlData = await Astro.slots.render('default');
+---
+
+<lazy-loader data-html-data={htmlData}>
+  <slot name="fallback" />
+</lazy-loader>
+
+<script>
+  class QLazyLoader extends HTMLElement {
+    constructor() {
+      super();
+
+      const htmlData = this.dataset.htmlData;
+      delete this.dataset.htmlData;
+      if (htmlData) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.map((entry) => {
+            if (entry.isIntersecting) {
+              observer.unobserve(this);
+              this.outerHTML = htmlData;
+            }
+          });
+        });
+        observer.observe(this);
+      }
+    }
+  }
+  customElements.define('lazy-loader', QLazyLoader);
+</script>

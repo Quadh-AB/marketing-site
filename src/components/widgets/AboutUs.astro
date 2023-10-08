@@ -1,13 +1,11 @@
 ---
-import { Github, Linkedin } from 'lucide-astro';
+import Hanxuan from '../../assets/images/team/hanxuan.jpg';
+import Hanyu from '../../assets/images/team/hanyu.jpg';
+import Hugo from '../../assets/images/team/hugo.jpg';
+import Hussein from '../../assets/images/team/hussein.jpg';
 import Headline from '../blog/Headline.astro';
 import WidgetWrapper from '../ui/WidgetWrapper.astro';
 import AboutUsPerson from './AboutUsPerson.astro';
-import { Image } from 'astro:assets';
-import Hugo from '../../assets/images/team/hugo.jpg';
-import Hussein from '../../assets/images/team/hussein.jpg';
-import Hanyu from '../../assets/images/team/hanyu.jpg';
-import Hanxuan from '../../assets/images/team/hanxuan.jpg';
 
 const { bg = await Astro.slots.render('bg') } = Astro.props;
 
